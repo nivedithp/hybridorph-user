@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/LeavesPage.dart';
+import 'package:flutter_application_1/notification.dart';
+import 'package:flutter_application_1/patientinfo.dart';
 
 class LoginScreen1 extends StatelessWidget {
   @override
@@ -7,18 +10,18 @@ class LoginScreen1 extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "hybridorpho",
-          style: TextStyle(fontSize: 16, color: Colors.white),
+          style: TextStyle(fontSize: 16, color: Colors.black),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.brown[200],
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color.fromARGB(255, 145, 106, 92),
               ),
               child: Center(
                 child: Text(
@@ -62,25 +65,32 @@ class LoginScreen1 extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 5,
+                    offset: Offset(0, 2),
+                  ),
+                ],
+                color: Color.fromARGB(255, 221, 216, 216),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 40,
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.brown,
                     child: Icon(
                       Icons.person,
                       size: 50,
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Staff Name",
                         style: TextStyle(
                           fontSize: 20,
@@ -111,19 +121,25 @@ class LoginScreen1 extends StatelessWidget {
                   // Leave Application
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[300],
+                      shadowColor: Colors.grey,
+                      elevation: 4.0,
+                      backgroundColor: Colors.brown[100],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     onPressed: () {
-                      // Handle Leave Application
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  LeavesPage())); // Handle Leave Application
                     },
                     child: Text(
                       "Leave Application",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 16),
                     ),
@@ -131,36 +147,46 @@ class LoginScreen1 extends StatelessWidget {
                   // Attendance
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[300],
+                      shadowColor: Colors.grey,
+                      elevation: 4.0,
+                      backgroundColor: Colors.brown[100],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     onPressed: () {
-                      // Handle Attendance
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NotificationsPage()));
                     },
                     child: Text(
                       " Notifications & Announcements",
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style: TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ),
                   // Patient Info
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[300],
+                      shadowColor: Colors.grey,
+                      elevation: 4.0,
+                      backgroundColor: Colors.brown[100],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     onPressed: () {
-                      // Handle Patient Info
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PatientsManagerPage()));
                     },
                     child: Text(
                       "Patient Info",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 16),
                     ),
@@ -168,7 +194,9 @@ class LoginScreen1 extends StatelessWidget {
                   // Placeholder for Additional Option
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[300],
+                      shadowColor: Colors.grey,
+                      elevation: 4.0,
+                      backgroundColor: Colors.brown[100],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -180,7 +208,7 @@ class LoginScreen1 extends StatelessWidget {
                       "Another Option",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 16),
                     ),

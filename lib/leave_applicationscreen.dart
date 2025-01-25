@@ -6,7 +6,7 @@ class LeaveApplicationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Leave Application"),
-        backgroundColor: Colors.blue, // Customize your theme color here
+        backgroundColor: Colors.brown[200], // Customize your theme color here
         actions: [
           IconButton(
             icon: Icon(Icons.notifications),
@@ -92,12 +92,15 @@ class LeaveApplicationScreen extends StatelessWidget {
                   // Submit leave application
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.brown[300],
                   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                 ),
                 child: Text(
                   "Apply for Leave",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/leave_applicationscreen.dart';
 
 class LeavesPage extends StatelessWidget {
   final List<Map<String, String>> leaves = [
@@ -13,12 +14,22 @@ class LeavesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Text("Leaves"),
-        backgroundColor: Colors.blue, // Customize your theme color here
+        backgroundColor: Colors.brown[200], // Customize your theme color here
         actions: [
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LeaveApplicationScreen()));
               // Navigate to the leave application page
             },
           ),
@@ -76,7 +87,7 @@ class LeavesPage extends StatelessWidget {
                         Text(leave['date']!),
                         Text(
                           leave['type']!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.grey,
                             fontStyle: FontStyle.italic,
                           ),
@@ -84,17 +95,24 @@ class LeavesPage extends StatelessWidget {
                       ],
                     ),
                     trailing: Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 12,
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
                         color: leave['status'] == "Approved"
                             ? Colors.green[100]
                             : leave['status'] == "Declined"
                                 ? Colors.red[100]
                                 : Colors.orange[100],
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       child: Text(
                         leave['status']!,

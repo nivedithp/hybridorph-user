@@ -10,11 +10,11 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Welcome to",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            Text(
+            const Text(
               "Hydro Orpho",
               style: TextStyle(
                   fontSize: 24,
@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
                   color: Colors.blue),
             ),
             SizedBox(height: 20),
-            Text(
+            const Text(
               "Welcome back to login",
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),

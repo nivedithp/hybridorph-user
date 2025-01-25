@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/LeavesPage.dart';
-import 'package:flutter_application_1/login_screen1.dart';
+import 'package:flutter_application_1/homescreen.dart';
 import 'package:flutter_application_1/loginpage.dart';
 import 'package:flutter_application_1/leave_applicationscreen.dart';
-import 'package:flutter_application_1/LeavesPage.dart';
+
+import 'package:flutter_application_1/notification.dart';
 
 void main() {
   runApp(const MyApp());
