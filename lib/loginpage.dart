@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,42 +23,42 @@ class LoginPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.blue),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             const Text(
               "Welcome back to login",
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             // Email Field
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Email',
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Password Field
-            TextField(
+            const TextField(
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Password',
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
                 onPressed: () {
                   // Forgot password action
                 },
-                child: Text(
+                child: const Text(
                   "Forgot password?",
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Login Button
             SizedBox(
               width: double.infinity,
@@ -67,7 +69,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   // Login action
                 },
-                child: Text(
+                child: const Text(
                   "Login",
                   style: TextStyle(
                     color: Colors.white,

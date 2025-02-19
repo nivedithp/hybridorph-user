@@ -10,21 +10,23 @@ class LeavesPage extends StatelessWidget {
       "duration": "Half Day"
     },
   ];
+
+  LeavesPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text("Leaves"),
+        title: const Text("Leaves"),
         backgroundColor: Colors.brown[200], // Customize your theme color here
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               Navigator.push(
                   context,
@@ -45,21 +47,21 @@ class LeavesPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FilterChip(
-                  label: Text("All"),
+                  label: const Text("All"),
                   selected: true,
                   onSelected: (bool value) {
                     // Handle filter for "All"
                   },
                 ),
                 FilterChip(
-                  label: Text("Casual"),
+                  label: const Text("Casual"),
                   selected: false,
                   onSelected: (bool value) {
                     // Handle filter for "Casual"
                   },
                 ),
                 FilterChip(
-                  label: Text("Sick"),
+                  label: const Text("Sick"),
                   selected: false,
                   onSelected: (bool value) {
                     // Handle filter for "Sick"
@@ -75,11 +77,12 @@ class LeavesPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final leave = leaves[index];
                 return Card(
-                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: ListTile(
                     title: Text(
-                      leave['duration']! + " Application",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      "${leave['duration']!} Application",
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,7 +103,7 @@ class LeavesPage extends StatelessWidget {
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Colors.grey,
                             blurRadius: 5,

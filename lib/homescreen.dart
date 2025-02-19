@@ -4,6 +4,8 @@ import 'package:flutter_application_1/notification.dart';
 import 'package:flutter_application_1/patientinfo.dart';
 
 class LoginScreen1 extends StatelessWidget {
+  const LoginScreen1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +21,7 @@ class LoginScreen1 extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 145, 106, 92),
               ),
@@ -58,7 +60,7 @@ class LoginScreen1 extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
             // Profile Section
@@ -86,11 +88,11 @@ class LoginScreen1 extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(width: 16),
+                  SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         "Staff Name",
                         style: TextStyle(
                           fontSize: 20,
@@ -110,7 +112,7 @@ class LoginScreen1 extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Grid Layout for Buttons
             Expanded(
               child: GridView.count(
@@ -144,7 +146,7 @@ class LoginScreen1 extends StatelessWidget {
                           fontSize: 16),
                     ),
                   ),
-                  // Attendance
+
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shadowColor: Colors.grey,
@@ -166,7 +168,7 @@ class LoginScreen1 extends StatelessWidget {
                       style: TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ),
-                  // Patient Info
+
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shadowColor: Colors.grey,
@@ -191,7 +193,7 @@ class LoginScreen1 extends StatelessWidget {
                           fontSize: 16),
                     ),
                   ),
-                  // Placeholder for Additional Option
+
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shadowColor: Colors.grey,
@@ -201,11 +203,9 @@ class LoginScreen1 extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    onPressed: () {
-                      // Handle Additional Option
-                    },
+                    onPressed: () {},
                     child: Text(
-                      "Another Option",
+                      "inventory",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.black,

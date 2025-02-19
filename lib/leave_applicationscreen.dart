@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class LeaveApplicationScreen extends StatelessWidget {
+  const LeaveApplicationScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Leave Application"),
+        title: const Text("Leave Application"),
         backgroundColor: Colors.brown[200], // Customize your theme color here
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications),
             onPressed: () {
               // Notification action
             },
@@ -21,14 +23,14 @@ class LeaveApplicationScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Apply for Leave",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Leave Type Dropdown
             DropdownButtonFormField<String>(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: "Leave Type",
                 border: OutlineInputBorder(),
               ),
@@ -42,23 +44,23 @@ class LeaveApplicationScreen extends StatelessWidget {
                 // Handle dropdown value change
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Leave Reason
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: "Reason",
                 border: OutlineInputBorder(),
               ),
               maxLines: 2,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Date Selection
             Row(
               children: [
                 Expanded(
                   child: TextField(
                     readOnly: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: "Start Date",
                       border: OutlineInputBorder(),
                       suffixIcon: Icon(Icons.calendar_today),
@@ -68,11 +70,11 @@ class LeaveApplicationScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: TextField(
                     readOnly: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: "End Date",
                       border: OutlineInputBorder(),
                       suffixIcon: Icon(Icons.calendar_today),
@@ -84,7 +86,7 @@ class LeaveApplicationScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Submit Button
             Center(
               child: ElevatedButton(
@@ -93,9 +95,10 @@ class LeaveApplicationScreen extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.brown[300],
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                 ),
-                child: Text(
+                child: const Text(
                   "Apply for Leave",
                   style: TextStyle(
                       fontSize: 16,

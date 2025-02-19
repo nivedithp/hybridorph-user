@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/LeavesPage.dart';
 import 'package:flutter_application_1/homescreen.dart';
-import 'package:flutter_application_1/loginpage.dart';
-import 'package:flutter_application_1/leave_applicationscreen.dart';
-
-import 'package:flutter_application_1/notification.dart';
+import 'package:flutter_application_1/patientdetails.dart';
+import 'package:flutter_application_1/inventory.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen1(),
+      home: InventoryPage(),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NotificationsPage extends StatelessWidget {
+  const NotificationsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +26,7 @@ class NotificationsPage extends StatelessWidget {
             title: 'Youth Club Anniversary',
             time: '10:00am - 12:00am',
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           sectionHeader('28 January 2024'),
           eventTile(
             title: 'Late Rajesh 1st death anniversary',
@@ -50,11 +52,11 @@ class NotificationsPage extends StatelessWidget {
 
   Widget eventTile({required String title, required String time}) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.grey,
             blurRadius: 5,
@@ -67,9 +69,9 @@ class NotificationsPage extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
             time,
             style: TextStyle(fontSize: 14, color: Colors.grey[600]),
