@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/homescreen.dart';
+import 'package:flutter_application_1/patient_edit.dart';
 import 'package:flutter_application_1/patientdetails.dart';
 import 'package:flutter_application_1/inventory.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: InventoryPage(),
+      home: LoginScreen1(),
     );
   }
 }

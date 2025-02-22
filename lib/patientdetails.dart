@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/patient_edit.dart';
 
 class PatientInfoPage extends StatelessWidget {
   @override
@@ -113,6 +114,8 @@ class RecentDetails extends StatelessWidget {
           SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => EditPatientPage()));
               // Add edit functionality here
             },
             child: Text("Edit"),
