@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/LeavesPage.dart';
+import 'package:flutter_application_1/inventory.dart';
 import 'package:flutter_application_1/notification.dart';
 import 'package:flutter_application_1/patientinfo.dart';
+import 'package:flutter_application_1/volunteer_task_assign.dart';
 
 class LoginScreen1 extends StatelessWidget {
   const LoginScreen1({super.key});
@@ -203,9 +205,38 @@ class LoginScreen1 extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => InventoryPage()));
+                    },
                     child: Text(
                       "inventory",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shadowColor: Colors.grey,
+                      elevation: 4.0,
+                      backgroundColor: Colors.brown[100],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => VolunteerTaskPage()));
+                    },
+                    child: Text(
+                      "volunteer task assign",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.black,
