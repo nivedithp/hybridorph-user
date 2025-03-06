@@ -1,10 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/LeavesPage.dart';
-import 'package:flutter_application_1/notification.dart';
-import 'package:flutter_application_1/patientinfo.dart';
+import 'package:flutter_application_1/features/patients/patientinfo.dart';
+import 'package:flutter_application_1/features/sign_in/login_screen.dart';
+import 'package:flutter_application_1/util/format_function.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-class LoginScreen1 extends StatelessWidget {
+import 'common_widgets.dart/custom_alert_dialog.dart';
+
+class LoginScreen1 extends StatefulWidget {
   const LoginScreen1({super.key});
+
+  @override
+  State<LoginScreen1> createState() => _LoginScreen1State();
+}
+
+class _LoginScreen1State extends State<LoginScreen1> {
+  Map<String, dynamic>? _staffDetails;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchStaffDetails();
+  }
+
+  void fetchStaffDetails() async {
+    try {
+      final userId = Supabase.instance.client.auth.currentUser!.id;
+      final response = await Supabase.instance.client
+          .from('staffs')
+          .select('*')
+          .eq('user_id', userId)
+          .single();
+      _staffDetails = response;
+      setState(() {});
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Exception occurred: ${e.toString()}")));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +86,26 @@ class LoginScreen1 extends StatelessWidget {
               leading: Icon(Icons.logout),
               title: Text('Logout'),
               onTap: () {
-                // Handle Logout tap
+                showDialog(
+                  context: context,
+                  builder: (context) => CustomAlertDialog(
+                    title: "SIGN OUT",
+                    content: const Text(
+                      "Are you sure you want to Sign Out? Clicking 'Sign Out' will end your current session and require you to sign in again to access your account.",
+                    ),
+                    primaryButton: "SIGN OUT",
+                    onPrimaryPressed: () {
+                      Supabase.instance.client.auth.signOut();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                        (route) => false,
+                      );
+                    },
+                  ),
+                );
               },
             ),
           ],
@@ -79,21 +131,26 @@ class LoginScreen1 extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 40,
+                    backgroundImage: _staffDetails != null
+                        ? NetworkImage(_staffDetails!['photo'])
+                        : null,
                     backgroundColor: Colors.brown,
-                    child: Icon(
-                      Icons.person,
-                      size: 50,
-                      color: Colors.white,
-                    ),
+                    child: _staffDetails == null
+                        ? Icon(
+                            Icons.person,
+                            size: 50,
+                            color: Colors.white,
+                          )
+                        : null,
                   ),
                   SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Staff Name",
+                        formatValue(_staffDetails?['name']),
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -101,7 +158,9 @@ class LoginScreen1 extends StatelessWidget {
                       ),
                       SizedBox(height: 4),
                       Text(
-                        "ID Number",
+                        _staffDetails != null
+                            ? _staffDetails!['id'].toString()
+                            : "ID Number",
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.grey[600],
@@ -147,27 +206,27 @@ class LoginScreen1 extends StatelessWidget {
                     ),
                   ),
 
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shadowColor: Colors.grey,
-                      elevation: 4.0,
-                      backgroundColor: Colors.brown[100],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => NotificationsPage()));
-                    },
-                    child: Text(
-                      " Notifications & Announcements",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black, fontSize: 16),
-                    ),
-                  ),
+                  // ElevatedButton(
+                  //   style: ElevatedButton.styleFrom(
+                  //     shadowColor: Colors.grey,
+                  //     elevation: 4.0,
+                  //     backgroundColor: Colors.brown[100],
+                  //     shape: RoundedRectangleBorder(
+                  //       borderRadius: BorderRadius.circular(10),
+                  //     ),
+                  //   ),
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(
+                  //             builder: (context) => NotificationsPage()));
+                  //   },
+                  //   child: Text(
+                  //     " Notifications & Announcements",
+                  //     textAlign: TextAlign.center,
+                  //     style: TextStyle(color: Colors.black, fontSize: 16),
+                  //   ),
+                  // ),
 
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -194,25 +253,25 @@ class LoginScreen1 extends StatelessWidget {
                     ),
                   ),
 
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shadowColor: Colors.grey,
-                      elevation: 4.0,
-                      backgroundColor: Colors.brown[100],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "inventory",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16),
-                    ),
-                  ),
+                  // ElevatedButton(
+                  //   style: ElevatedButton.styleFrom(
+                  //     shadowColor: Colors.grey,
+                  //     elevation: 4.0,
+                  //     backgroundColor: Colors.brown[100],
+                  //     shape: RoundedRectangleBorder(
+                  //       borderRadius: BorderRadius.circular(10),
+                  //     ),
+                  //   ),
+                  //   onPressed: () {},
+                  //   child: Text(
+                  //     "inventory",
+                  //     textAlign: TextAlign.center,
+                  //     style: TextStyle(
+                  //         color: Colors.black,
+                  //         fontWeight: FontWeight.w500,
+                  //         fontSize: 16),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -221,11 +280,4 @@ class LoginScreen1 extends StatelessWidget {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: LoginScreen1(),
-  ));
 }
